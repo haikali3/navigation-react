@@ -1,8 +1,13 @@
 import React from 'react';
 import Modal from '../components/Modal';
+import Button from '../components/Button';
 
 function ModalPage() {
   const [showModal, setShowModal] = React.useState(false);
+
+  const handleClick = () => {
+    setShowModal(!showModal);
+  };
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -14,6 +19,8 @@ function ModalPage() {
 
   return (
     <div>
+      <Button onClick={handleClick}>Open Modal</Button>
+      {showModal && <Modal />}
       <h1>Modal Page</h1>
       <button onClick={handleShowModal}>Show Modal</button>
       <Modal show={showModal} onClose={handleCloseModal}>
