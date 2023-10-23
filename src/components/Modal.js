@@ -5,7 +5,7 @@ function Modal(props) {
     <div className="modal">
       <div className="modal-content">
         <span className="close" onClick={props.onClose}>
-          &times;
+          &times; modal
         </span>
         {props.children}
       </div>
