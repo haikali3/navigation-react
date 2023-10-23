@@ -6,27 +6,38 @@ function ModalPage() {
   const [showModal, setShowModal] = React.useState(false);
 
   const handleClick = () => {
-    setShowModal(!showModal);
-  };
-
-  const handleShowModal = () => {
     setShowModal(true);
   };
 
-  const handleCloseModal = () => {
+  const handleClose = () => {
     setShowModal(false);
   };
 
-  return (
+  const actionBar = (
     <div>
-      <Button onClick={handleClick}>Open Modal</Button>
-      {showModal && <Modal />}
-      <h1>Modal Page</h1>
-      <button onClick={handleShowModal}>Show Modal</button>
-      <Modal show={showModal} onClose={handleCloseModal}>
-        <h2>Modal Content</h2>
-        <p>This is the content of the modal.</p>
-      </Modal>
+      <Button onClick={handleClose} primary>
+        I accept
+      </Button>
+    </div>
+  );
+  const modal = (
+    <Modal onClose={handleClose} actionBar={actionBar} title="Modal title">
+      <p>Here is an important agreement for you to accept</p>
+    </Modal>
+  );
+
+  return (
+    <div className="relative">
+      <Button onClick={handleClick} primary>
+        Open Modal
+      </Button>
+      {showModal && modal}
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam pariatur
+        odio cupiditate et, laudantium accusamus atque omnis iusto repudiandae
+        quod eveniet adipisci, dignissimos culpa commodi architecto ab possimus
+        quidem maiores?
+      </p>
     </div>
   );
 }
