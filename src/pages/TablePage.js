@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
-import Table from '../components/Table';
+// import Table from '../components/Table';
+import SortableTable from '../components/SortableTable';
 
 function TablePage() {
   const data = [
@@ -11,23 +11,30 @@ function TablePage() {
   ];
 
   const config = [
-    { label: 'Name', render: (fruit) => fruit.name },
-    { label: 'Color', render: (fruit) => fruit.color },
+    {
+      label: 'Name',
+      render: (fruit) => fruit.name,
+      sortValue: (fruit) => fruit.name,
+    },
     {
       label: 'Color',
       render: (fruit) => (
         <div className={`w-5 h-5 rounded-full ${fruit.color}`}></div>
       ),
     },
-    { label: 'Price', render: (fruit) => fruit.price },
-    { label: 'Name Again  ', render: (fruit) => fruit.name },
+    {
+      label: 'Price',
+      render: (fruit) => fruit.price,
+      sortValue: (fruit) => fruit.price,
+      header: () => <th className="bg-red-400">Price</th>,
+    },
   ];
 
   const keyFn = (fruit) => fruit.name;
 
   return (
     <div>
-      <Table data={data} config={config} keyFn={keyFn} />
+      <SortableTable data={data} config={config} keyFn={keyFn} />
     </div>
   );
 }
