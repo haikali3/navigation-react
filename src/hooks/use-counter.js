@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-function useCounter(initialCounter) {
-  const [count, setCount] = useState(initialCounter);
+function useCounter(initialCount) {
+  const [count, setCount] = useState(initialCount);
 
   useEffect(() => {
     console.log(count);
