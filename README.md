@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Created a web app to learn about custom navigation for routing systems, ReactDOM , data sorting and hooks
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
